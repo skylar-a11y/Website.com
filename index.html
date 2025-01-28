@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Sederhana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Blog Sederhana</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="content">
+            <h2>Selamat datang di Blog Saya!</h2>
+            <p>Ini adalah blog sederhana yang berisi berbagai informasi tentang saya, proyek-proyek saya, dan banyak lagi!</p>
+        </section>
+
+        <section id="projects">
+            <h2>Proyek Terbaru</h2>
+            <ul>
+                <li><a href="#">Proyek 1: Website Portofolio</a></li>
+                <li><a href="#">Proyek 2: Aplikasi To-Do List</a></li>
+                <li><a href="#">Proyek 3: Sistem Pengelolaan Tugas</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Blog Sederhana. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Menambahkan JavaScript di sini -->
+    <script>
+        // Menambahkan efek scroll halus ketika mengklik link di menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Menambahkan tombol "Scroll to Top"
+        const scrollToTopButton = document.createElement('button');
+        scrollToTopButton.textContent = "↑ Scroll to Top";
+        scrollToTopButton.style.position = 'fixed';
+        scrollToTopButton.style.bottom = '20px';
+        scrollToTopButton.style.right = '20px';
+        scrollToTopButton.style.padding = '10px 15px';
+        scrollToTopButton.style.fontSize = '18px';
+        scrollToTopButton.style.backgroundColor = '#f39c12';
+        scrollToTopButton.style.color = '#fff';
+        scrollToTopButton.style.border = 'none';
+        scrollToTopButton.style.borderRadius = '5px';
+        scrollToTopButton.style.cursor = 'pointer';
+        scrollToTopButton.style.display = 'none'; // Awalnya tombol disembunyikan
+
+        // Menambahkan tombol ke body
+        document.body.appendChild(scrollToTopButton);
+
+        // Menampilkan tombol "Scroll to Top" ketika pengguna menggulir ke bawah
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 200) {
+                scrollToTopButton.style.display = 'block'; // Tampilkan tombol
+            } else {
+                scrollToTopButton.style.display = 'none'; // Sembunyikan tombol
+            }
+        });
+
+        // Menggunakan tombol untuk menggulir ke atas
+        scrollToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
